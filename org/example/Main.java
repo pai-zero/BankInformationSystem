@@ -1,3 +1,4 @@
+/*Copyright (c) 2024   SNUT 兀朝阳202214024085  All rights reserved*/
 package org.example;
 
 import java.util.Scanner;
