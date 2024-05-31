@@ -31,8 +31,8 @@ public abstract class Account {
     }
 
     // 抽象方法，子类需要实现
-    public abstract boolean deposit(double amount);
+    public abstract double deposit(double amount);
 
     // 抽象方法，子类需要实现
-    public abstract boolean withdraw(double amount);
+    public abstract double withdraw(double amount);
 }

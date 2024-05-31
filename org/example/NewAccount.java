@@ -3,21 +3,23 @@ package org.example;
 import java.util.Scanner;
 
 public class NewAccount {
+    Scanner sc = new Scanner(System.in);
+    String account;
+    int password;
+    String username;
+    String id;// 身份信息
     public NewAccount() {
     }
 
-    public boolean enroll() {
-        Scanner sc = new Scanner(System.in);
+    public int enroll() {
+
         int choice;
-        String account;
-        int password;
-        String username;
-        String id;// 身份信息
+
         boolean flag = false;
 
         System.out.println("请选择开户类型:");
-        System.out.println("1.储蓄账户（ore.example.SavingAccount）");
-        System.out.println("2.信用账户（ore.example.CreditAccount）");
+        System.out.println("1.储蓄账户（SavingAccount）");
+        System.out.println("2.信用账户（CreditAccount）");
 
         choice = sc.nextInt();
         sc.nextLine();
@@ -59,8 +61,8 @@ public class NewAccount {
                         System.out.println("请重新输入:");
                     }
                 } while (flag1);
-                SavingAccount user = new SavingAccount(account, password, username, id);
 
+                return 1;
             } else if (choice == 2) {
                 boolean flag2 = false;
 
@@ -98,15 +100,24 @@ public class NewAccount {
                     }
                 } while (flag2);
 
-                CreditAccount user = new CreditAccount(account, password, username, id);
+
+                return 2;
             } else {
                 System.out.println("请输入合法范围.");
                 flag = true;
             }
         } while (flag);
 
-        return !flag;
+       return 0;
 
+    }
+    public SavingAccount getsavingaccount(){
+        SavingAccount user = new SavingAccount(account, password, username, id);
+        return user;
+    }
+    public CreditAccount getcreditAccount(){
+        CreditAccount user = new CreditAccount(account, password, username, id);
+        return user;
     }
 
 }

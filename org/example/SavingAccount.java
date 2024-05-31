@@ -7,20 +7,20 @@ public class SavingAccount extends Account {
     }
 
     @Override
-    public boolean deposit(double amount) {
+    public double deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            return true;
+            return balance;
         }
-        return false;
+        return 0.0;
     }
 
     @Override
-    public boolean withdraw(double amount) {
+    public double withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
-            return true;
+            return balance;
         }
-        return false;
+        return 0.0;
     }
 }

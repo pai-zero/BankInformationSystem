@@ -8,23 +8,23 @@ public class CreditAccount extends Account {
     }
 
     @Override
-    public boolean deposit(double amount) {
+    public double deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            return true;
+            return balance;
         }
-        return false;
+        return 0.0;
     }
 
     @Override
-    public boolean withdraw(double amount) {
+    public double withdraw(double amount) {
         if (amount > 0) {
             double newBalance = balance - amount;
             if (newBalance >= -MAX_OVERDRAW) { // 允许透支到-10000
                 balance = newBalance;
-                return true;
+                return balance;
             }
         }
-        return false;
+        return 0.0;
     }
 }
